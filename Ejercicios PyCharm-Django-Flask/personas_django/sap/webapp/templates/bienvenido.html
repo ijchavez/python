@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+</head>
+<body>
+<h1>Sistema de Administración de personas (SAP)</h1>
+<div>Numero de personas: {{no_personas}}</div>
+<div>
+    <button>
+        <a href="nueva_persona">Agregar Persona</a>
+    </button>
+
+</div>
+
+<div>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for persona in personas %}
+        <tr>
+            <td>{{persona.id}}</td>
+            <td>{{persona.nombre}} {{persona.apellido}}</td>
+            <td>{{persona.email}}</td>
+            <td>
+                <button>
+                    <a href="detalle_persona/{{persona.id}}">Ver Detalle</a>
+                </button>
+            </td>
+            <td>
+                <button>
+                    <a href="editar_persona/{{persona.id}}">Editar</a>
+                </button>
+            </td>
+            <td>
+                <button>
+                    <a href="eliminar_persona/{{persona.id}}">Eliminar</a>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<h1>Domicilios</h1>
+<div>Cantidad de domicilios: {{no_domicilio}}</div>
+<div>
+    <button>
+        <a href="nuevo_domicilio">Agregar Domicilio</a>
+    </button>
+
+</div>
+
+<div>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Calle</th>
+            <th>Número</th>
+            <th>País</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for domicilio in domicilios %}
+        <tr>
+            <td>{{domicilio.id}}</td>
+            <td>{{domicilio.calle}} {{domicilio.no_calle}}</td>
+            <td>{{domicilio.pais}}</td>
+            <td>
+                <button>
+                    <a href="detalle_domicilios/{{domicilio.id}}">Ver Detalle</a>
+                </button>
+            </td>
+            <td>
+                <button>
+                    <a href="editar_domicilio/{{domicilio.id}}">Editar</a>
+                </button>
+            </td>
+            <td>
+                <button>
+                    <a href="eliminar_domicilio/{{domicilio.id}}">Eliminar</a>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
